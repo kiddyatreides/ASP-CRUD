@@ -16,27 +16,27 @@ namespace LatihanASP
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            getID();
-        }               
-
-        protected void getID()
-        {
-            try
+            if (!IsPostBack)
             {
                 string id = this.Request["id"];
-                string sql = "Select * from barang where id = @id";
+                getID(id);
+            }                
+        }               
+
+        protected void getID(string id)
+        {
+            string sql = "Select * from barang where id = @id";
+            try
+            {
                 SqlConnection conn = new SqlConnection(connStr);
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
                 conn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
-                if(dr.Read())
-                {
-                    iduser.Text = dr["id"].ToString();
-                    nama.Text = dr["nama"].ToString();
-                    deskripsi.Text = dr["deskripsi"].ToString();
-                    harga.Text = dr["harga"].ToString();
-                }
+                dr.Read();
+                TextBox1.Text = dr["nama"].ToString();
+                TextBox2.Text = dr["deskripsi"].ToString();
+                TextBox3.Text = dr["harga"].ToString();
                 conn.Close();
             }
             catch (Exception e)
@@ -52,29 +52,25 @@ namespace LatihanASP
         {
             try
             {
-                string sql = "update barang set nama = @nama, deskripsi = @deskripsi, harga = @harga where id = @id";
+                string sql = "UPDATE barang SET nama = @nama, deskripsi = @deskripsi, harga = @harga WHERE id = @id";
                 SqlConnection conn = new SqlConnection(connStr);
                 SqlCommand cmd = new SqlCommand(sql, conn);
-                conn.Open();
+                conn.Open();                               
 
-                cmd.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
-                cmd.Parameters.Add(new SqlParameter("@nama", SqlDbType.VarChar, 250));
-                cmd.Parameters.Add(new SqlParameter("@deskripsi", SqlDbType.Text));
-                cmd.Parameters.Add(new SqlParameter("@harga", SqlDbType.Money));
+                string id = this.Request["id"];
+                cmd.Parameters.Add("@id", SqlDbType.VarChar, 5).Value = id;
+                cmd.Parameters.Add("@nama", SqlDbType.VarChar, 250).Value = TextBox1.Text;
+                cmd.Parameters.Add("@deskripsi", SqlDbType.Text).Value = TextBox2.Text;
+                cmd.Parameters.Add("@harga", SqlDbType.Money).Value = TextBox3.Text.ToString();
 
-                cmd.Parameters["@id"].Value = this.Request["id"];
-                cmd.Parameters["@nama"].Value = nama.Text.ToString();
-                cmd.Parameters["@deskripsi"].Value = deskripsi.Text.ToString();
-                cmd.Parameters["@harga"].Value = harga.Text.ToString();
-
-                cmd.ExecuteNonQuery();
+                int res = cmd.ExecuteNonQuery();
                 conn.Close();
-                Response.Write("<script>alert('Berhasil Update');</script>");
+                Response.Write("<script>alert('Berhasil');</script>");
                 Response.Write("<script>window.location = 'View.aspx'</script>");
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                Response.Write("<script>alert('"+ ex.Message +"');</script>");
+                Response.Write("<script>alert('" + ex.Message + "'); </script>");
             }
         }
     }

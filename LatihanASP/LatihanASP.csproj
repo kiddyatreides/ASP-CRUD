@@ -70,6 +70,7 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Update.aspx" />
+    <Content Include="Update2.aspx" />
     <Content Include="View.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -155,6 +156,13 @@
     </Compile>
     <Compile Include="Update.aspx.designer.cs">
       <DependentUpon>Update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Update2.aspx.cs">
+      <DependentUpon>Update2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Update2.aspx.designer.cs">
+      <DependentUpon>Update2.aspx</DependentUpon>
     </Compile>
     <Compile Include="View.aspx.cs">
       <DependentUpon>View.aspx</DependentUpon>
