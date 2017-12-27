@@ -41,7 +41,7 @@ namespace LatihanASP
                 PlaceHolder_Data.Controls.Add(new LiteralControl(dr["harga"].ToString()));
                 PlaceHolder_Data.Controls.Add(new LiteralControl("</td>"));
                 PlaceHolder_Data.Controls.Add(new LiteralControl("<td>"));
-                PlaceHolder_Data.Controls.Add(new LiteralControl("<a href='#' class='btn btn-primary'>Edit</a>"));
+                PlaceHolder_Data.Controls.Add(new LiteralControl("<a href='Update.aspx?id="+ dr["id"].ToString() + "' class='btn btn-primary'>Edit</a>"));
                 PlaceHolder_Data.Controls.Add(new LiteralControl("</td>"));
                 PlaceHolder_Data.Controls.Add(new LiteralControl("</tr>"));
             }
