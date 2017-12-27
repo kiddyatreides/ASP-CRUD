@@ -1,0 +1,4 @@
+c:\users\kiddyatreides\documents\visual studio 2010\Projects\LatihanASP\LatihanASP\bin\LatihanASP.dll
+c:\users\kiddyatreides\documents\visual studio 2010\Projects\LatihanASP\LatihanASP\bin\LatihanASP.pdb
+c:\users\kiddyatreides\documents\visual studio 2010\Projects\LatihanASP\LatihanASP\obj\Debug\LatihanASP.dll
+c:\users\kiddyatreides\documents\visual studio 2010\Projects\LatihanASP\LatihanASP\obj\Debug\LatihanASP.pdb
