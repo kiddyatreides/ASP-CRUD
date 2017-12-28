@@ -12,8 +12,7 @@
                     <asp:TextBox ID="password" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <asp:Button ID="btn_save" CssClass="btn btn-md btn-primary" OnClick="login" runat="server" Text="Save" />
-                    <button type="reset" class="btn btn-md btn-danger">Cancel</button>
+                    <asp:Button ID="btn_save" CssClass="btn btn-md btn-primary" OnClick="login" runat="server" Text="Login" />
                 </div>
             </form>
 </asp:Content>
