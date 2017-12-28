@@ -3,7 +3,9 @@
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <!-- Remove This Before You Start -->
-    <h2>Daftar Barang PT. Oke Oce</h2>
+    <h2>Daftar Barang PT. Oke Oce - Admin : <asp:Label ID="admin" runat="server" Text="Label"></asp:Label></h2>
+    <a href="Logout.aspx" class="btn btn-sm btn-danger">Logout</a>
+    <hr />
             <table class="table table-bordered">
                 <thead>
                 <tr>
